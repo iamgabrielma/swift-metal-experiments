@@ -24,6 +24,7 @@ final class Renderer: NSObject, MTKViewDelegate {
         // Way into to the graphics unit
         self.metalCommandQueue = metalDevice.makeCommandQueue()
         
+        let _: [Vertex] = []
         // init for the vertex buffer:
 //        let vertices: [Vertex] = [
 //

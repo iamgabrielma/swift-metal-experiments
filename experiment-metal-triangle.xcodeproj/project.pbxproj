@@ -17,6 +17,7 @@
 		68FD32722A992E5800597882 /* experiment_metal_triangleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = experiment_metal_triangleApp.swift; sourceTree = "<group>"; };
 		68FD32762A992E5900597882 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68FD32792A992E5900597882 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		68FD32822A993B0300597882 /* shaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shaders.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				68FD32722A992E5800597882 /* experiment_metal_triangleApp.swift */,
+				68FD32822A993B0300597882 /* shaders.h */,
 				68FD32762A992E5900597882 /* Assets.xcassets */,
 				68FD32782A992E5900597882 /* Preview Content */,
 			);
@@ -279,6 +281,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tilcode.experiment-metal-triangle";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/iamgabrielma/Documents/experiments-ios/experiment-metal-triangle/experiment-metal-triangle/shaders.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -308,6 +311,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tilcode.experiment-metal-triangle";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/iamgabrielma/Documents/experiments-ios/experiment-metal-triangle/experiment-metal-triangle/shaders.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
