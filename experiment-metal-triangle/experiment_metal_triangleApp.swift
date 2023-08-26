@@ -14,7 +14,9 @@ final class Renderer: NSObject, MTKViewDelegate {
     var parent: TriangleMetalView
     var metalDevice: MTLDevice!
     var metalCommandQueue: MTLCommandQueue!
-    //var vertexBuffer: MTLBuffer
+    let vertexBuffer: MTLBuffer
+    
+    let pipelineState: MTLRenderPipelineState
     
     init(_ parent: TriangleMetalView) {
         self.parent = parent
@@ -24,13 +26,29 @@ final class Renderer: NSObject, MTKViewDelegate {
         // Way into to the graphics unit
         self.metalCommandQueue = metalDevice.makeCommandQueue()
         
-        let _: [Vertex] = []
-        // init for the vertex buffer:
-//        let vertices: [Vertex] = [
-//
-//        ]
-//
-//        vertexBuffer = metalDevice.makeBuffer(bytes: vertices, length: vertices.count * MemoryLayout<Vertex>.stride, options: []) as! MTLBuffer
+        let pipelineDescriptor = MTLRenderPipelineDescriptor()
+        let library = metalDevice.makeDefaultLibrary()
+        // Finds these into Shaders.metal and bind them into the pipelineDescriptor
+        pipelineDescriptor.vertexFunction = library?.makeFunction(name: "vertexShader")
+        pipelineDescriptor.fragmentFunction = library?.makeFunction(name: "fragmentShader")
+        pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        
+        do {
+            try pipelineState = metalDevice.makeRenderPipelineState(descriptor: pipelineDescriptor)
+        } catch {
+            fatalError()
+        }
+        
+        //init for the vertex buffer:
+        let vertices: [Vertex] = [
+            Vertex(position: [-1,-1], color: [1,0,0,1]),
+            Vertex(position: [1,1], color: [0,1,0,1]),
+            Vertex(position: [0,1], color: [0,0,1,1])
+        ]
+        // MemoryLayout as kinda C's sizeOf 
+        vertexBuffer = metalDevice.makeBuffer(bytes: vertices,
+                                              length: vertices.count * MemoryLayout<Vertex>.stride,
+                                              options: [])!
         
         super.init()
     }
@@ -54,6 +72,10 @@ final class Renderer: NSObject, MTKViewDelegate {
         
         // Enconde all those commands into the rendereconder and pass the to the buffer
         let renderEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor!)
+        
+        renderEncoder?.setRenderPipelineState(pipelineState)
+        renderEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+        renderEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 3)
         
         renderEncoder?.endEncoding()
         
