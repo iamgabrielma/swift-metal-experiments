@@ -13,6 +13,7 @@
 		68FD32842A99C43400597882 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 68FD32832A99C43400597882 /* Shaders.metal */; };
 		68FD32862A99CEFF00597882 /* TriangleMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FD32852A99CEFF00597882 /* TriangleMetalView.swift */; };
 		68FD32882A99CF3B00597882 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FD32872A99CF3B00597882 /* Renderer.swift */; };
+		68FD32922A9A639800597882 /* TriangleMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FD32912A9A639800597882 /* TriangleMesh.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		68FD32832A99C43400597882 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		68FD32852A99CEFF00597882 /* TriangleMetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleMetalView.swift; sourceTree = "<group>"; };
 		68FD32872A99CF3B00597882 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		68FD32912A9A639800597882 /* TriangleMesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleMesh.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				68FD32782A992E5900597882 /* Preview Content */,
 				68FD32852A99CEFF00597882 /* TriangleMetalView.swift */,
 				68FD32872A99CF3B00597882 /* Renderer.swift */,
+				68FD32912A9A639800597882 /* TriangleMesh.swift */,
 			);
 			path = "experiment-metal-triangle";
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68FD32882A99CF3B00597882 /* Renderer.swift in Sources */,
+				68FD32922A9A639800597882 /* TriangleMesh.swift in Sources */,
 				68FD32862A99CEFF00597882 /* TriangleMetalView.swift in Sources */,
 				68FD32842A99C43400597882 /* Shaders.metal in Sources */,
 				68FD32732A992E5800597882 /* experiment_metal_triangleApp.swift in Sources */,

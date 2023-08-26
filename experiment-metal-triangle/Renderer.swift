@@ -8,7 +8,6 @@
 import Foundation
 import MetalKit
 
-
 final class Renderer: NSObject, MTKViewDelegate {
     
     var parent: TriangleMetalView
@@ -84,14 +83,11 @@ private extension Renderer {
     }
     
     private func makeShape(_ shape: ShapeType) -> [Vertex] {
-        var tempShape: [Vertex] = []
 
         if shape == .triangle {
-            tempShape.append(Vertex(position: [-1,-1], color: [1,0,0,1]))
-            tempShape.append(Vertex(position: [1,1], color: [0,1,0,1]))
-            tempShape.append(Vertex(position: [0,1], color: [0,0,1,1]))
+            return TriangleMesh.shape
         }
-        return tempShape
+        return []
     }
     
     private func configure(renderPassDescriptor: MTLRenderPassDescriptor) {
