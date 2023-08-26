@@ -13,10 +13,10 @@ import MetalKit
 struct TriangleMetalView: UIViewRepresentable {
     
     func makeCoordinator() -> Renderer {
-        Renderer(self)
+        Renderer(parent: self)
     }
     
-    // context as typealias for UIViewRepresentableContext<Self>, switch for our own thing:
+    // `context` as typealias for UIViewRepresentableContext<Self>, switch for our own thing:
     // we also return an MTKView as the UIView
     func makeUIView(context: UIViewRepresentableContext<TriangleMetalView>) -> MTKView {
         let mtkView = MTKView()
